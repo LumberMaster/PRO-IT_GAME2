@@ -8,6 +8,8 @@ TagManager:
   - Map
   - Money
   - Health
+  - Shop
+  - Bullet
   layers:
   - Default
   - TransparentFX

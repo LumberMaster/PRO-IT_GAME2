@@ -17,4 +17,9 @@ public class CameraMove : MonoBehaviour
              Camera.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y, -0.5f);
         }
     }
+    void OnTriggerExit2D(Collider2D other){
+        if(other.gameObject.tag == "Bullet"){
+            Destroy(other.gameObject);
+        }
+    }
 }

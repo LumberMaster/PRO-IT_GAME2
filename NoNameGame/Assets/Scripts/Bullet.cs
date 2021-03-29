@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed;
-
-    public float lifetime;
-
-    public float distance;
+    public float speedBullet;
 
     public int damage;
-
-    public LayerMask whatIsSolid;
   
+
+
     private void Update()
     {
         // RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
@@ -25,7 +21,7 @@ public class Bullet : MonoBehaviour
         //     }
         //     Destroy(gameObject);
         // }
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * speedBullet * Time.deltaTime);
     }
 
 
@@ -34,9 +30,6 @@ public class Bullet : MonoBehaviour
             other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }
-        // if(other.gameObject.tag == "Map"){
-        //     Destroy(gameObject);
-        // }
     }
 }
 
