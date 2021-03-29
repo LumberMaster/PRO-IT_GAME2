@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public float speed;
     public int money_per_kill;
+    public GameObject gun;
 
     private void Update()
     {
@@ -24,4 +25,5 @@ public class Enemy : MonoBehaviour
         health -= damage;
     }
 
+    
 }

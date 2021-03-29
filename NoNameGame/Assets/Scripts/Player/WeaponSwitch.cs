@@ -6,13 +6,16 @@ public class WeaponSwitch : MonoBehaviour
 {
     public GameObject[] weapons;
     public KeyCode next;
+    public KeyCode prev;
+    int index = 0; 
 
+    private void Start() {
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(next))
         {
-            int index = 0;
             for (int i = 0; i < weapons.Length; i++)
             {
 
@@ -25,8 +28,26 @@ public class WeaponSwitch : MonoBehaviour
 
            weapons[index].SetActive(false);
            index++;
-           if(index >=  weapons.Length)  index = 0;
+           if(index >= weapons.Length)  index = 0;
            weapons[index].SetActive(true);
+        }
+
+        if(Input.GetKeyDown(prev)) {
+            for (int i = 0; i < weapons.Length; i++)
+            {
+
+                if (weapons[i].activeInHierarchy == true)
+                {
+                  weapons[i].SetActive(false);
+                  index = i;
+                }
+            }
+
+           weapons[index].SetActive(false);
+           index--;
+           if(index <  0) index = weapons.Length - 1;
+           weapons[index].SetActive(true);
+
         }
     }
 }
